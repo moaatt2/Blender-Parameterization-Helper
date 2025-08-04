@@ -8,3 +8,9 @@ Below is an example of the custom UI added to blender.
 
 ![Custom Blender UI Example](assets/example.png)
 
+
+## Goals
+
+* Write a standalone executable for windows
+* Make a 1 page app hosted via GH pages
+* Add support for variables composed of other variables
