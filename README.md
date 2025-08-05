@@ -13,7 +13,7 @@ Below is an example of the custom UI added to blender.
 
 As this program takes code as input, it expects the code to follow a certain layout to run smoothly. 
 
-The script looks for headings to separate the two sections it needs to read, `Parameters` and `Model Code`. Below are explainations of how to format section headings, and explainations of the two sections.
+The script looks for headings to separate the sections it needs to read, `Imports`, `Parameters` and `Model Code`. Below are explainations of how to format section headings, and explainations of the two sections.
 
 ### Section Headings
 
@@ -34,10 +34,32 @@ An example section heading is:
     ### Section Name ###
     ####################
 
+### Imports
+
+This section is for importing the libraries you use for your rough script.
+
+
 ### Parameters
+
+This section is where you define the parameters you want added to the final script.
+
+Parameters follow one of the two formats:
+* `label = value`
+    * Use this for normal numeric values.
+* `label = math.radians(90)`
+    * Use this for rotational values you want displayed as degrees instead of radians.
+
+If you have a parameter with the label `name` the name will be used in the name of the custom toolbar.
 
 
 ### Model Code
+
+This is where it is expected for you to put your code that uses the parameters to generate your model.
+
+
+### Example Code
+
+TODO
 
 
 ## Goals
