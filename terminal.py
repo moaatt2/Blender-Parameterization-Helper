@@ -1,13 +1,27 @@
 
+import os
 import pyperclip
+
+########################
+### Helper Functions ###
+########################
+
+def clear_terminal():
+    if os.name == "nt":
+        _ = os.system("cls")
+    else:
+        _ = os.system.clear("clear")
+
 
 ##################
 ### Get Source ###
 ##################
 
+clear_terminal()
 print("Welcome to the blender parameterization helper.")
 print("I will take the blender code from your clipboard, create a paramterized version and put that back in your clipboard.")
 input("Press Enter When you are ready to start:")
+clear_terminal()
 
 test_code = pyperclip.paste()
 
