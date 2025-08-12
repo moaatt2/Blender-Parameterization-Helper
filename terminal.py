@@ -1,4 +1,6 @@
 
+import pyperclip
+
 ##################
 ### Get Source ###
 ##################
@@ -269,7 +271,6 @@ for key, value in parameters.items():
         output += "\t)\n"
 
 
-
 #########################################
 ### Create Custom Menu & Add Contents ###
 #########################################
@@ -420,4 +421,5 @@ if __name__ == "__main__":
 ### Print Output ###
 ####################
 
-print(output)
+pyperclip.copy(output)
+print("The updated code is in your clipboard now.")
