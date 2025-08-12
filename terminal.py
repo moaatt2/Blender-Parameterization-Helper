@@ -5,97 +5,11 @@ import pyperclip
 ### Get Source ###
 ##################
 
-test_code = """
+print("Welcome to the blender parameterization helper.")
+print("I will take the blender code from your clipboard, create a paramterized version and put that back in your clipboard.")
+input("Press Enter When you are ready to start:")
 
-###############
-### Imports ###
-###############
-
-import bpy
-import math
-
-
-############
-### Prep ###
-############
-
-# Clear Scene
-bpy.ops.object.select_all(action='DESELECT')
-bpy.ops.object.select_by_type(type='MESH')
-bpy.ops.object.delete()
-
-##################
-### Parameters ###
-##################
-
-weave_name = "Double Step"
-
-large_ring_minor = 0.20
-large_ring_major = 1.40
-
-medium_ring_minor = 0.20
-medium_ring_major = 0.95
-
-small_ring_minor = 0.15
-small_ring_major = 0.73
-
-dist_1 = 2.20
-dist_2 = 1.10
-
-angle_1 = -math.radians(11)
-angle_2 =  math.radians(90)
-
-##################
-### Model Code ###
-##################
-
-for i in range(5):
-    base_dist = i * dist_1
-
-    # Large Ring
-    bpy.ops.mesh.primitive_torus_add(
-        align="WORLD",
-        location=(0,base_dist,0),
-        rotation=(angle_1,0,0),
-        major_radius=large_ring_major,
-        minor_radius=large_ring_minor,
-        major_segments=48,
-        minor_segments=12,
-    )
-
-    # Medium Ring
-    bpy.ops.mesh.primitive_torus_add(
-        align="WORLD",
-        location=(0,base_dist,0),
-        rotation=(angle_1,0,0),
-        major_radius=medium_ring_major,
-        minor_radius=medium_ring_minor,
-        major_segments=48,
-        minor_segments=12,
-    )
-    
-    # Small Ring 1
-    bpy.ops.mesh.primitive_torus_add(
-        align="WORLD",
-        location=(0.18,base_dist + dist_2,0),
-        rotation=(0,angle_2,0),
-        major_radius=small_ring_major,
-        minor_radius=small_ring_minor,
-        major_segments=48,
-        minor_segments=12,
-    )
-    
-    # Small Ring 2
-    bpy.ops.mesh.primitive_torus_add(
-        align="WORLD",
-        location=(-0.18,base_dist + dist_2,0),
-        rotation=(0,angle_2,0),
-        major_radius=small_ring_major,
-        minor_radius=small_ring_minor,
-        major_segments=48,
-        minor_segments=12,
-    )
-"""
+test_code = pyperclip.paste()
 
 ################################
 ### Split code into sections ###
