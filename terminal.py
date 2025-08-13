@@ -6,26 +6,28 @@ import pyperclip
 ### Helper Functions ###
 ########################
 
-def clear_terminal():
+# Clear terminal where messages are printed.
+def clear_terminal() -> None:
+    """A helper function to clear the terminal.
+    
+    It checks the underlying operating system to use the right terminal clearing command.
+    """
     if os.name == "nt":
         _ = os.system("cls")
     else:
         _ = os.system.clear("clear")
 
 
-##################
-### Get Source ###
-##################
+# Turn rough code to paramterization helper code
+def parameterize_blender_code(code: str) -> str:
+    """This function takes in rough blender modeling code and returns code that adds sliders.
 
-clear_terminal()
-print("Welcome to the blender parameterization helper.")
-print("I will take the blender code from your clipboard, create a paramterized version and put that back in your clipboard.")
-input("Press Enter When you are ready to start:")
-clear_terminal()
+    Args:
+        code (str): Your starting rough model code.
 
-code = pyperclip.paste()
-
-def parameterize_blender_code(code):
+    Returns:
+        str: The updated model code in a framework to add a custom menu to blender where you can tweak the parameters.
+    """
 
     ################################
     ### Split code into sections ###
@@ -348,6 +350,18 @@ if __name__ == "__main__":
 
     return output
 
+
+##################
+### Get Source ###
+##################
+
+clear_terminal()
+print("Welcome to the blender parameterization helper.")
+print("I will take the blender code from your clipboard, create a paramterized version and put that back in your clipboard.")
+input("Press Enter When you are ready to start:")
+clear_terminal()
+
+code = pyperclip.paste()
 
 #####################
 ### Return Output ###
