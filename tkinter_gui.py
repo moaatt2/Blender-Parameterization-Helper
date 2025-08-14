@@ -3,6 +3,20 @@ import tkinter
 from tkinter import ttk
 
 
+#################
+### Functions ###
+#################
+
+def parameterize_and_replace():
+    print("parameterize_and_replace")
+    pass # TODO
+
+
+def parameterize_to_clipboard():
+    print("parameterize_to_clipboard")
+    pass # TODO
+
+
 #################################
 ### Initialize Tkinter Window ###
 #################################
@@ -21,8 +35,8 @@ main_frame = tkinter.Frame(window)
 main_frame.pack(expand=True, fill="both")
 
 # Add Lower Half
-ttk.Button(main_frame, text="Parameterize Code - Save to Clipboard").pack(side="bottom", fill="x", padx=5, pady=5)
-ttk.Button(main_frame, text="Parameterize Code - Replace Text Box").pack(side="bottom", fill="x", padx=5, pady=5)
+ttk.Button(main_frame, text="Parameterize Code - Save to Clipboard", command=parameterize_to_clipboard).pack(side="bottom", fill="x", padx=5, pady=5)
+ttk.Button(main_frame, text="Parameterize Code - Replace Text Box", command=parameterize_and_replace).pack(side="bottom", fill="x", padx=5, pady=5)
 ttk.Separator(main_frame, orient="horizontal").pack(side="bottom", fill="x", pady=5)
 
 # Add label
