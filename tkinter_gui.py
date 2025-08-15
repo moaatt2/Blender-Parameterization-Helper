@@ -1,6 +1,10 @@
 
+# GUI Libraries
 import tkinter
-from tkinter import ttk
+from tkinter import ttk, messagebox
+
+# User clipboard interaction
+import pyperclip
 
 
 #################
@@ -355,8 +359,18 @@ def parameterize_and_replace():
 
 
 def parameterize_to_clipboard():
-    print("parameterize_to_clipboard")
-    pass # TODO
+    # Get raw code from form
+    raw_code = code_entry.get("1.0", "end").strip()
+
+    # Create paramterized code & remove excess whitespace
+    parameterized_code = parameterize_blender_code(raw_code)
+
+    # Copy code to users clipboard
+    pyperclip.copy(parameterized_code)
+
+    # Let user know code has been copied
+    messagebox.showinfo("Done", "Your code is now in your clipboard")
+
 
 
 #################################
