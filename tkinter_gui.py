@@ -369,8 +369,13 @@ def parameterize_to_clipboard():
     pyperclip.copy(parameterized_code)
 
     # Let user know code has been copied
-    messagebox.showinfo("Done", "Your code is now in your clipboard")
+    window.bell()
+    clipboard_button.configure(text="Saved to Clipboard")
 
+
+def reset_button(event):
+    clipboard_button.configure(text="Parameterize Code - Save to Clipboard")
+    code_entry.edit_modified(False)
 
 
 #################################
@@ -391,7 +396,8 @@ main_frame = tkinter.Frame(window)
 main_frame.pack(expand=True, fill="both")
 
 # Add Lower Half
-ttk.Button(main_frame, text="Parameterize Code - Save to Clipboard", command=parameterize_to_clipboard).pack(side="bottom", fill="x", padx=5, pady=5)
+clipboard_button = ttk.Button(main_frame, text="Parameterize Code - Save to Clipboard", command=parameterize_to_clipboard)
+clipboard_button.pack(side="bottom", fill="x", padx=5, pady=5)
 ttk.Button(main_frame, text="Parameterize Code - Replace Text Box", command=parameterize_and_replace).pack(side="bottom", fill="x", padx=5, pady=5)
 ttk.Separator(main_frame, orient="horizontal").pack(side="bottom", fill="x", pady=5)
 
@@ -403,6 +409,13 @@ label.pack(pady=5)
 # Add textbox
 code_entry = tkinter.Text(main_frame)
 code_entry.pack(side="top", padx=5, fill="both", expand=True)
+
+
+######################
+### Event Bindings ###
+######################
+
+code_entry.bind("<<Modified>>", reset_button)
 
 
 ############################
