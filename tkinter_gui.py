@@ -371,11 +371,13 @@ def parameterize_to_clipboard():
     # Let user know code has been copied
     window.bell()
     clipboard_button.configure(text="Saved to Clipboard")
+    clipboard_button.configure(state=tkinter.DISABLED)
 
 
 def reset_button(event):
     clipboard_button.configure(text="Parameterize Code - Save to Clipboard")
     code_entry.edit_modified(False)
+    clipboard_button.configure(state=tkinter.NORMAL)
 
 
 #################################
