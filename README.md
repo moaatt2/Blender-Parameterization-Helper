@@ -77,3 +77,8 @@ TODO
     * `python -m nuitka --enable-plugin=tk-inter --windows-console-mode=disable --remove-output --onefile tkinter_gui.py`
     * If you want to build multiple times to test/itterate I suggest removing `--remove-output`
     * If you want to debug the compiled application I suggest removing `--windows-console-mode=disable`
+
+
+## Credits
+
+alert.wav, based on Metal Gear Solid Inspired Alert Surprise SFX by djlprojects -- https://freesound.org/s/413641/ -- License: Creative Commons 0
