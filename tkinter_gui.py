@@ -370,7 +370,10 @@ def parameterize_to_clipboard():
     pyperclip.copy(parameterized_code)
 
     # Let user know code has been copied
-    playsound("assets/alert.wav", block=False)
+    try:
+        playsound("assets/alert.wav", block=False)
+    except Exception as e:
+        window.bell()
     clipboard_button.configure(text="Saved to Clipboard")
     clipboard_button.configure(state=tkinter.DISABLED)
     code_entry.edit_modified(False)
