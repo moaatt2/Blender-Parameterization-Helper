@@ -1,7 +1,8 @@
 
 # GUI Libraries
 import tkinter
-from tkinter import ttk, messagebox
+from tkinter import ttk
+from playsound3 import playsound
 
 # User clipboard interaction
 import pyperclip
@@ -369,11 +370,10 @@ def parameterize_to_clipboard():
     pyperclip.copy(parameterized_code)
 
     # Let user know code has been copied
-    window.bell()
     clipboard_button.configure(text="Saved to Clipboard")
     clipboard_button.configure(state=tkinter.DISABLED)
     code_entry.edit_modified(False)
-
+    playsound("assets/alert.wav")
 
 def reset_button(event):
     if code_entry.edit_modified():
